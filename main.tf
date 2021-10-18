@@ -47,7 +47,7 @@ module "opszero-eks" {
   nodes_blue_max_size          = 1
   nodes_blue_max_unavailable   = 1
 
-  bastion_enabled     = true
+  bastion_enabled     = false
   bastion_eip_enabled = false
 
   bastion_vpn_allowed_cidrs = ["0.0.0.0/0"]

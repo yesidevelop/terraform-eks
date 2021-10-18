@@ -33,7 +33,7 @@ resource "aws_eks_node_group" "green" {
   cluster_name    = aws_eks_cluster.cluster.name
   node_group_name = "custer-nodegroup-green"
   node_role_arn   = aws_iam_role.node.arn
-  subnet_ids      = aws_subnet.private.*.id
+  subnet_ids      = aws_subnet.public.*.id
   instance_types  = [ var.nodes_green_instance_type ]
 
   scaling_config {
@@ -59,7 +59,7 @@ resource "aws_eks_node_group" "blue" {
   cluster_name    = aws_eks_cluster.cluster.name
   node_group_name = "custer-nodegroup-blue"
   node_role_arn   = aws_iam_role.node.arn
-  subnet_ids      = aws_subnet.private.*.id
+  subnet_ids      = aws_subnet.public.*.id
 
   scaling_config {
     desired_size = var.nodes_blue_desired_capacity
