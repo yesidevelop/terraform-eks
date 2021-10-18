@@ -7,7 +7,7 @@ resource "helm_release" "aws_load_balancer" {
   chart      = "aws-load-balancer-controller"
   depends_on = [
     module.iam_assumable_role_alb,
-    kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth
   ]
   wait = false
 
