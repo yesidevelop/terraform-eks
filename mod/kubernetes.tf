@@ -7,14 +7,10 @@ provider "kubernetes" {
 data "aws_eks_cluster_auth" "cluster" {
   name = var.environment_name
 }
-resource "time_sleep" "wait_10_minutes" {
-  depends_on = [aws_eks_cluster_auth.cluster]
 
-  create_duration = "10m"
-}
 resource "kubernetes_config_map" "aws_auth" {
   depends_on = [
-    time_sleep.wait_10_minutes
+    aws_eks_node_group.green
   ]
   metadata {
     name      = "aws-auth"
