@@ -15,7 +15,8 @@ resource "kubernetes_role" "default_eks_admins" {
   }
 
   depends_on = [
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 }
 
@@ -36,7 +37,8 @@ resource "kubernetes_role_binding" "default_eks_admins" {
   }
 
   depends_on = [
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 }
 
@@ -56,7 +58,8 @@ resource "kubernetes_role" "default_eks_readonly" {
   }
 
   depends_on = [
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 }
 
@@ -77,7 +80,8 @@ resource "kubernetes_role_binding" "default_eks_readonly" {
   }
 
   depends_on = [
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 }
 
@@ -97,7 +101,8 @@ resource "kubernetes_role" "default_eks_developers" {
   }
 
   depends_on = [
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 }
 
@@ -118,7 +123,8 @@ resource "kubernetes_role_binding" "default_eks_developers" {
   }
 
   depends_on = [
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 }
 
@@ -138,7 +144,8 @@ resource "kubernetes_role" "default_eks_monitoring_admins" {
   }
 
   depends_on = [
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 }
 
@@ -159,7 +166,8 @@ resource "kubernetes_role_binding" "default_eks_monitoring_admins" {
   }
 
   depends_on = [
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 }
 
@@ -179,7 +187,8 @@ resource "kubernetes_cluster_role_binding" "eks_admins_binding" {
     api_group = "rbac.authorization.k8s.io"
   }
   depends_on = [
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 }
 
@@ -198,6 +207,7 @@ resource "kubernetes_cluster_role_binding" "eks_readonly_binding" {
     api_group = "rbac.authorization.k8s.io"
   }
   depends_on = [
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 }

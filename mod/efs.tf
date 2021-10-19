@@ -7,7 +7,8 @@ resource "helm_release" "aws_efs_csi_driver" {
   chart      = "aws-efs-csi-driver"
   depends_on = [
     module.iam_assumable_role_admin,
-    # kubernetes_config_map.aws_auth
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
   ]
 
   wait = false

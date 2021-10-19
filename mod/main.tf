@@ -81,7 +81,10 @@ resource "aws_eks_node_group" "blue" {
 }
 
 resource "time_sleep" "wait_5_minutes" {
-  # depends_on = [kubernetes_config_map.aws_auth]
+  depends_on = [
+    # kubernetes_config_map.aws_auth,
+    aws_eks_node_group.green,
+  ]
 
   create_duration = "5m"
 }

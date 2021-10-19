@@ -30,7 +30,8 @@ rbac:
      eks.amazonaws.com/role-arn: "${module.iam_assumable_role_cluster_autoscaler.this_iam_role_arn}"
 EOF
   ]
-  # depends_on = [
-  #   kubernetes_config_map.aws_auth
-  # ]
+  depends_on = [
+    # kubernetes_config_map.aws_auth
+    aws_eks_node_group.green,
+  ]
 }

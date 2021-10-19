@@ -8,6 +8,7 @@ resource "helm_release" "aws_load_balancer" {
   depends_on = [
     module.iam_assumable_role_alb,
     # kubernetes_config_map.aws_auth
+    aws_eks_node_group.green,
   ]
   wait = false
 
