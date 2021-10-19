@@ -47,6 +47,10 @@ resource "aws_route_table" "private" {
     Name                  = "${var.environment_name}-private-${count.index}"
     "KubespotEnvironment" = var.environment_name
   }
+  timeouts {
+    create = "60m"
+    delete = "60m"
+  }
 }
 
 output "private_route_table" {

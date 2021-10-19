@@ -43,6 +43,10 @@ resource "aws_route_table" "public" {
     "Name"                = "${var.environment_name}-public-${count.index}"
     "KubespotEnvironment" = var.environment_name
   }
+  timeouts {
+    create = "60m"
+    delete = "60m"
+  }
 }
 
 resource "aws_route_table_association" "public" {
